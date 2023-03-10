@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:statex/rx_types/rx_types.dart';
+import 'package:statyx/rx_types/rx_types.dart';
 
 typedef WidgetCallback = Widget Function();
 

@@ -4,8 +4,8 @@ import 'dart:async';
 import 'dart:collection';
 
 import 'package:flutter/foundation.dart';
-import 'package:statex/rx_stream/get_stream.dart';
-import 'package:statex/rx_typedefs.dart';
+import 'package:statyx/rx_stream/get_stream.dart';
+import 'package:statyx/rx_typedefs.dart';
 
 part 'rx_core/rx_impl.dart';
 part 'rx_core/rx_interface.dart';

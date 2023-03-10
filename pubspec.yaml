@@ -1,8 +1,8 @@
-name: statex
+name: statyx
 description: GetX, but only state management.
 version: 0.0.1
 author: Elliot Kong<elliotkhd@gmail.com>
-homepage: https://github.com/elliotkhd/StateX
+homepage: https://github.com/elliotkhd/StatyX
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
