@@ -1,11 +1,12 @@
 name: statex
-description: Getx, but only state management.
+description: GetX, but only state management.
 version: 0.0.1
-homepage:
+author: Elliot Kong<elliotkhd@gmail.com>
+homepage: https://github.com/elliotkhd/StateX
 
 environment:
   sdk: '>=2.19.2 <3.0.0'
-  flutter: ">=1.17.0"
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
