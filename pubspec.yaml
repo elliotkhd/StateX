@@ -1,12 +1,12 @@
 name: statyx
 description: GetX, but only state management.
-version: 0.0.1
+version: 0.0.2
 author: Elliot Kong<elliotkhd@gmail.com>
 homepage: https://github.com/elliotkhd/StatyX
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
-  flutter: ">=3.7.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
@@ -15,7 +15,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.3
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

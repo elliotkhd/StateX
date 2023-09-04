@@ -369,3 +369,28 @@ class Rxn<T> extends Rx<T?> {
     }
   }
 }
+
+extension StringExtension on String {
+  /// Returns a `RxString` with [this] `String` as initial value.
+  RxString get obs => RxString(this);
+}
+
+extension IntExtension on int {
+  /// Returns a `RxInt` with [this] `int` as initial value.
+  RxInt get obs => RxInt(this);
+}
+
+extension DoubleExtension on double {
+  /// Returns a `RxDouble` with [this] `double` as initial value.
+  RxDouble get obs => RxDouble(this);
+}
+
+extension BoolExtension on bool {
+  /// Returns a `RxBool` with [this] `bool` as initial value.
+  RxBool get obs => RxBool(this);
+}
+
+extension RxT<T> on T {
+  /// Returns a `Rx` instance with [this] `T` as initial value.
+  Rx<T> get obs => Rx<T>(this);
+}

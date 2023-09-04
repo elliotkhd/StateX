@@ -25,6 +25,6 @@ State management for Flutter, drawn out from GetX.
 ## Usage
 
 ```dart
-final name = RxString('StateX');
+final name = RxString('StatyX');
 Obx(() => Text(name.value));
 ```
