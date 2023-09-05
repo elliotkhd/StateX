@@ -1,7 +1,6 @@
 name: statyx
 description: GetX, but only state management.
 version: 0.0.2
-author: Elliot Kong<elliotkhd@gmail.com>
 homepage: https://github.com/elliotkhd/StatyX
 
 environment:
