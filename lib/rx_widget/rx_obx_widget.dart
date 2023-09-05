@@ -61,6 +61,7 @@ class _ObxState extends State<ObxWidget> {
 class Obx extends ObxWidget {
   final WidgetCallback builder;
 
+  //ignore:use_key_in_widget_constructors
   const Obx(this.builder);
 
   @override
