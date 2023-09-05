@@ -17,6 +17,7 @@ State management for Flutter, drawn out from GetX.
 
 - All Rx types from GetX(RxInt, RxList..)
 - Obx from GetX
+- ViewModel that observe life circle event 
 
 ## Getting started
 
@@ -25,6 +26,42 @@ State management for Flutter, drawn out from GetX.
 ## Usage
 
 ```dart
-final name = RxString('StatyX');
-Obx(() => Text(name.value));
+
+class HomeViewModel extends BaseViewModel {
+  final counter = 0.obs;
+
+  @override
+  void onInit() {}
+
+  @override
+  void onClose() {}
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends VMState<HomePage, HomeViewModel> {
+  @override
+  HomeViewModel createViewModel() => HomeViewModel();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() => Text('${viewModel.counter.value}')),
+            IconButton(
+              onPressed: () => viewModel.counter.value++,
+              icon: const Icon(Icons.add),
+            )
+          ],
+        ));
+  }
+}
+
 ```
