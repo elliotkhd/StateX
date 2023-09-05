@@ -1,26 +1,26 @@
 part of statyx;
 
-abstract class VMState<T extends StatefulWidget, VM extends BaseViewModel>
+abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
     extends State<T> {
-  /// [logic] instance.
-  late final VM logic = createViewModel();
+  /// [viewModel] instance.
+  late final VM viewModel = createViewModel();
 
-  /// create [logic] instance.
+  /// create [viewModel] instance.
   ///
   /// must be override.
   VM createViewModel();
 
   @override
   void initState() {
-    logic.onInit();
+    viewModel.onInit();
     SchedulerBinding.instance
-        .addPostFrameCallback((timeStamp) => logic.onReady());
+        .addPostFrameCallback((timeStamp) => viewModel.onReady());
     super.initState();
   }
 
   @override
   void dispose() {
-    logic.onClose();
+    viewModel.onClose();
     super.dispose();
   }
 }
