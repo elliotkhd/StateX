@@ -1,9 +1,9 @@
 part of statyx;
 
-abstract class BaseViewModel {
-  void onInit();
+abstract class ViewModel {
+  void onInit() {}
 
-  void onReady();
+  void onReady() {}
 
-  void onClose();
+  void onClose() {}
 }
