@@ -1,4 +1,4 @@
-part of rx_types;
+part of '../rx_types.dart';
 
 class RxSet<E> extends SetMixin<E>
     with NotifyManager<Set<E>>, RxObjectMixin<Set<E>>
@@ -54,13 +54,13 @@ class RxSet<E> extends SetMixin<E>
   int get length => value.length;
 
   @override
-  E? lookup(Object? element) {
-    return value.lookup(element);
+  E? lookup(Object? object) {
+    return value.lookup(object);
   }
 
   @override
-  bool remove(Object? value) {
-    var hasRemoved = _value.remove(value);
+  bool remove(Object? item) {
+    final hasRemoved = _value.remove(item);
     if (hasRemoved) {
       refresh();
     }
@@ -73,8 +73,8 @@ class RxSet<E> extends SetMixin<E>
   }
 
   @override
-  void addAll(Iterable<E> elements) {
-    _value.addAll(elements);
+  void addAll(Iterable<E> item) {
+    _value.addAll(item);
     refresh();
   }
 
@@ -97,13 +97,16 @@ class RxSet<E> extends SetMixin<E>
   }
 
   @override
-  void retainWhere(bool Function(E) test) {
-    _value.retainWhere(test);
+  void retainWhere(bool Function(E) E) {
+    _value.retainWhere(E);
     refresh();
   }
 }
 
 extension SetExtension<E> on Set<E> {
+  RxSet<E> get obs {
+    return RxSet<E>(<E>{})..addAll(this);
+  }
 
   // /// Add [item] to [List<E>] only if [item] is not null.
   // void addNonNull(E item) {
@@ -117,14 +120,12 @@ extension SetExtension<E> on Set<E> {
 
   /// Add [item] to [List<E>] only if [condition] is true.
   void addIf(dynamic condition, E item) {
-    if (condition is Condition) condition = condition();
-    if (condition is bool && condition) add(item);
+    if (condition()) add(item);
   }
 
   /// Adds [Iterable<E>] to [List<E>] only if [condition] is true.
-  void addAllIf(dynamic condition, Iterable<E> items) {
-    if (condition is Condition) condition = condition();
-    if (condition is bool && condition) addAll(items);
+  void addAllIf(Condition condition, Iterable<E> items) {
+    if (condition()) addAll(items);
   }
 
   /// Replaces all existing items of this list with [item]

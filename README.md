@@ -26,8 +26,8 @@ State management for Flutter, drawn out from GetX.
 ## Usage
 
 ```dart
-
-class HomeViewModel extends BaseViewModel {
+//ViewModel
+class HomeViewModel extends ViewModel {
   final counter = 0.obs;
 
   @override
@@ -37,6 +37,7 @@ class HomeViewModel extends BaseViewModel {
   void onClose() {}
 }
 
+//View
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -51,17 +52,23 @@ class _HomePageState extends VMState<HomePage, HomeViewModel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Obx(() => Text('${viewModel.counter.value}')),
-            IconButton(
-              onPressed: () => viewModel.counter.value++,
-              icon: const Icon(Icons.add),
-            )
-          ],
-        ));
+      appBar: AppBar(title: const Text('Hello StatyX')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => viewModel.counter.value++,
+        child: const Icon(Icons.add),
+      ),
+      body: Center(
+        child: Obx(
+              () => Text(
+            '${viewModel.counter.value}',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ),
+      ),
+    );
   }
 }
+
+
 
 ```

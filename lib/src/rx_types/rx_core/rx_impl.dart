@@ -1,4 +1,4 @@
-part of rx_types;
+part of '../rx_types.dart';
 
 /// global object that registers against `GetX` and `Obx`, and allows the
 /// reactivity
@@ -8,7 +8,7 @@ mixin RxObjectMixin<T> on NotifyManager<T> {
   late T _value;
 
   /// Makes a direct update of [value] adding it to the Stream
-  /// useful when you make use of Rx for custom Types to refresh your UI.
+  /// useful when you make use of Rx for custom Types to referesh your UI.
   ///
   /// Sample:
   /// ```
@@ -252,7 +252,7 @@ abstract class _RxImpl<T> extends RxNotifier<T> with RxObjectMixin<T> {
   /// ```
   ///
   void trigger(T v) {
-    var firstRebuild = this.firstRebuild;
+    final firstRebuild = this.firstRebuild;
     value = v;
     // If it's not the first rebuild, the listeners have been called already
     // So we won't call them again.
@@ -263,8 +263,7 @@ abstract class _RxImpl<T> extends RxNotifier<T> with RxObjectMixin<T> {
 }
 
 class RxBool extends Rx<bool> {
-  RxBool(bool initial) : super(initial);
-
+  RxBool(super.initial);
   @override
   String toString() {
     return value ? "true" : "false";
@@ -272,8 +271,7 @@ class RxBool extends Rx<bool> {
 }
 
 class RxnBool extends Rx<bool?> {
-  RxnBool([bool? initial]) : super(initial);
-
+  RxnBool([super.initial]);
   @override
   String toString() {
     return "$value";
@@ -345,7 +343,7 @@ extension RxnBoolExt on Rx<bool?> {
 /// For example, any custom "Model" class, like User().obs will use `Rx` as
 /// wrapper.
 class Rx<T> extends _RxImpl<T> {
-  Rx(T initial) : super(initial);
+  Rx(super.initial);
 
   @override
   dynamic toJson() {
@@ -358,7 +356,7 @@ class Rx<T> extends _RxImpl<T> {
 }
 
 class Rxn<T> extends Rx<T?> {
-  Rxn([T? initial]) : super(initial);
+  Rxn([super.initial]);
 
   @override
   dynamic toJson() {

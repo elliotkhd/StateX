@@ -1,4 +1,4 @@
-part of rx_types;
+part of '../rx_types.dart';
 
 /// Create a list similar to `List<T>`
 class RxList<E> extends ListMixin<E>
@@ -61,14 +61,14 @@ class RxList<E> extends ListMixin<E>
   }
 
   @override
-  void add(E element) {
-    _value.add(element);
+  void add(E item) {
+    _value.add(item);
     refresh();
   }
 
   @override
-  void addAll(Iterable<E> iterable) {
-    _value.addAll(iterable);
+  void addAll(Iterable<E> item) {
+    _value.addAll(item);
     refresh();
   }
 
@@ -127,6 +127,7 @@ class RxList<E> extends ListMixin<E>
 }
 
 extension ListExtension<E> on List<E> {
+  RxList<E> get obs => RxList<E>(this);
 
   /// Add [item] to [List<E>] only if [item] is not null.
   void addNonNull(E item) {
@@ -139,15 +140,13 @@ extension ListExtension<E> on List<E> {
   // }
 
   /// Add [item] to List<E> only if [condition] is true.
-  void addIf(dynamic condition, E item) {
-    if (condition is Condition) condition = condition();
-    if (condition is bool && condition) add(item);
+  void addIf(Condition condition, E item) {
+    if (condition()) add(item);
   }
 
   /// Adds [Iterable<E>] to [List<E>] only if [condition] is true.
-  void addAllIf(dynamic condition, Iterable<E> items) {
-    if (condition is Condition) condition = condition();
-    if (condition is bool && condition) addAll(items);
+  void addAllIf(Condition condition, Iterable<E> items) {
+    if (condition()) addAll(items);
   }
 
   /// Replaces all existing items of this list with [item]

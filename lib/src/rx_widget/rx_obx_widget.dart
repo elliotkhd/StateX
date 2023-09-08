@@ -1,4 +1,9 @@
-part of statyx;
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+
+import '../rx_types/rx_types.dart';
 
 typedef WidgetCallback = Widget Function();
 
@@ -8,7 +13,7 @@ typedef WidgetCallback = Widget Function();
 /// - [Obx]
 /// - [ObxValue]
 abstract class ObxWidget extends StatefulWidget {
-  const ObxWidget({Key? key}) : super(key: key);
+  const ObxWidget({super.key});
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -83,7 +88,7 @@ class ObxValue<T extends RxInterface> extends ObxWidget {
   final Widget Function(T) builder;
   final T data;
 
-  const ObxValue(this.builder, this.data, {Key? key}) : super(key: key);
+  const ObxValue(this.builder, this.data, {super.key});
 
   @override
   Widget build() => builder(data);

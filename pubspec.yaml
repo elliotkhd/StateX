@@ -1,6 +1,6 @@
 name: statyx
 description: GetX, but only state management.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/elliotkhd/StatyX
 
 environment:
@@ -14,7 +14,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.3
+  lint: ^2.1.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

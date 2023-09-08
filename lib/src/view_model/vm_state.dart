@@ -1,4 +1,4 @@
-part of statyx;
+part of 'view_model.dart';
 
 abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
     extends State<T> {

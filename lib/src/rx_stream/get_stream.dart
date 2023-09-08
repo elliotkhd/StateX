@@ -1,4 +1,4 @@
-part of rx_types;
+part of 'rx_stream.dart';
 
 /// [GetStream] is the lightest and most performative way of working
 /// with events at Dart. You sintaxe is like StreamController, but it works
@@ -53,7 +53,7 @@ class GetStream<T> {
   void _notifyError(Object error, [StackTrace? stackTrace]) {
     assert(!isClosed, 'You cannot add errors to a closed stream.');
     _isBusy = true;
-    var itemsToRemove = <LightSubscription<T>>[];
+    final itemsToRemove = <LightSubscription<T>>[];
     for (final item in _onData!) {
       if (!item.isPaused) {
         if (stackTrace != null) {

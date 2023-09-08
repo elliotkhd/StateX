@@ -1,4 +1,12 @@
-include: package:flutter_lints/flutter.yaml
+include: package:lint/strict.yaml
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+linter:
+  rules:
+    always_use_package_imports: false
+    require_trailing_commas: false
+    avoid_classes_with_only_static_members: false
+    depend_on_referenced_packages: false
+    avoid_dynamic_calls: false
+analyzer:
+  language:
+    strict-casts: false
