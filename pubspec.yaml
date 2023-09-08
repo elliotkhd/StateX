@@ -1,5 +1,5 @@
 name: statyx
-description: GetX, but only state management.
+description: State management with MVVM pattern
 version: 0.0.4
 homepage: https://github.com/elliotkhd/StatyX
 
