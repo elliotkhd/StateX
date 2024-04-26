@@ -12,15 +12,15 @@ abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
 
   @override
   void initState() {
+    super.initState();
     viewModel.onInit();
     SchedulerBinding.instance
         .addPostFrameCallback((timeStamp) => viewModel.onReady());
-    super.initState();
   }
 
   @override
   void dispose() {
-    viewModel.onClose();
     super.dispose();
+    viewModel.onClose();
   }
 }
