@@ -1,3 +1,9 @@
+## 0.1.0
+
+* Access ```widget``` in ```ViewModel``` to use arguments in ```widget``` directly 
+* BREAKING: Remove ```Vmx``` to avoid using ```widget``` in ```ViewModel``` incorrectly 
+* BREAKING: Change variable name ```viewModel``` to ```vm``` 
+
 ## 0.0.6
 
 * Add ```Vmx``` to reduce boilerplate code

@@ -2,10 +2,10 @@ part of 'view_model.dart';
 
 abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
     extends State<T> {
-  /// [viewModel] instance.
-  late final VM viewModel = createViewModel() as VM;
+  /// [vm] instance.
+  late final VM vm = createViewModel() as VM;
 
-  /// create [viewModel] instance.
+  /// create [vm] instance.
   ///
   /// must be override.
   ViewModel createViewModel();
@@ -13,14 +13,15 @@ abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
   @override
   void initState() {
     super.initState();
-    viewModel.onInit();
+    vm.widget = widget;
+    vm.onInit();
     SchedulerBinding.instance
-        .addPostFrameCallback((timeStamp) => viewModel.onReady());
+        .addPostFrameCallback((timeStamp) => vm.onReady());
   }
 
   @override
   void dispose() {
     super.dispose();
-    viewModel.onClose();
+    vm.onClose();
   }
 }

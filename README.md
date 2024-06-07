@@ -14,38 +14,45 @@ Most of the time, I don't need all the features in GetX. Based on my experience,
 
 ```dart
 //ViewModel
-class HomeViewModel extends ViewModel {
+class HomeViewModel extends ViewModel<HomePage> {
   final counter = 0.obs;
 
   @override
-  void onInit() {} // called in initState()
+  void onInit() {
+    counter.value = widget.initialValue;
+  }
 
   @override
-  void onClose() {} // called in dispose()
+  void onClose() {}
 }
 
 //View
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+
+class HomePage extends StatefulWidget {
+  const HomePage({
+    super.key,
+    this.initialValue = 0,
+  });
+
+  final int initialValue;
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends VMState<HomePage, HomeViewModel> {
+  @override
+  ViewModel createViewModel() => HomeViewModel();
 
   @override
   Widget build(BuildContext context) {
-    return Vmx(
-      create: () => HomeViewModel(),
-      builder: (vm) => Scaffold(
-        appBar: AppBar(title: const Text('Hello StatyX')),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => vm.counter.value++,
-          child: const Icon(Icons.add),
-        ),
-        body: Center(child: Obx(() => Text('${vm.counter.value}'))),
-      ),
+    return Scaffold(
+      appBar: AppBar(title: const Text('Hello StatyX')),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () => vm.counter.value++, child: const Icon(Icons.add)),
+      body: Center(child: Obx(() => Text('${vm.counter.value}'))),
     );
   }
 }
-
-
-
-
 ```
 
