@@ -13,7 +13,8 @@ abstract class VMState<T extends StatefulWidget, VM extends ViewModel>
   @override
   void initState() {
     super.initState();
-    assert(vm.typeOfWidget == T, 'Widget Type in $VM should be $T');
+    assert(vm.typeOfWidget == Widget || vm.typeOfWidget == T,
+        'Widget Type in $VM should be empty or $T');
     assert(vm.initiated == false, 'ViewModel already initiated');
     vm.widget = widget;
     vm.onInit();
