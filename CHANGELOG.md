@@ -1,3 +1,7 @@
+## 0.1.1
+
+* bind widget and viewModel more tightly, it's one-to-one relationship now.
+
 ## 0.1.0
 
 * Access ```widget``` in ```ViewModel``` to use arguments in ```widget``` directly 

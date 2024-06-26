@@ -1,6 +1,6 @@
 name: statyx
 description: State management with MVVM pattern
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/elliotkhd/StatyX
 
 environment:
