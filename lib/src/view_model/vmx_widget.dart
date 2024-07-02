@@ -4,7 +4,7 @@ import 'package:statyx/statyx.dart';
 abstract class Vmx<VM extends ViewModel> extends StatefulWidget {
   const Vmx({super.key});
 
-  VM createViewModel();
+  ViewModel createViewModel();
 
   Widget build(BuildContext context, VM vm);
 
