@@ -1,4 +1,4 @@
-## 0.1.2
+## 0.2.0
 
 * add ```Vmx``` widget to avoid declaring ```VMState``` in simpler use cases
 
