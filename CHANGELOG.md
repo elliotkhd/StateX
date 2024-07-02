@@ -1,6 +1,6 @@
 ## 0.1.2
 
-* add Vmx widget to replace VMState
+* add ```Vmx``` widget to avoid declaring ```VMState``` in simpler use cases
 
 ## 0.1.1
 
@@ -8,9 +8,9 @@
 
 ## 0.1.0
 
-* Access ```widget``` in ```ViewModel``` to use arguments in ```widget``` directly 
-* BREAKING: Remove ```Vmx``` to avoid using ```widget``` in ```ViewModel``` incorrectly 
-* BREAKING: Change variable name ```viewModel``` to ```vm``` 
+* Access ```widget``` in ```ViewModel``` to use arguments in ```widget``` directly
+* BREAKING: Remove ```Vmx``` to avoid using ```widget``` in ```ViewModel``` incorrectly
+* BREAKING: Change variable name ```viewModel``` to ```vm```
 
 ## 0.0.6
 
