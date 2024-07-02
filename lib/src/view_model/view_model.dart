@@ -5,15 +5,20 @@ part 'vm_state.dart';
 
 abstract class ViewModel<T extends Widget> {
   late T widget;
-  bool initiated = false;
-  bool closed = false;
-  final Type typeOfWidget;
+  bool _initiated = false;
+  bool _closed = false;
 
-  ViewModel() : typeOfWidget = T;
-
-  void onInit() {}
+  @mustCallSuper
+  void onInit() {
+    assert(_initiated == false, 'ViewModel already initiated');
+    _initiated = true;
+  }
 
   void onReady() {}
 
-  void onClose() {}
+  @mustCallSuper
+  void onClose() {
+    assert(_closed == false, 'ViewModel already disposed');
+    _closed = true;
+  }
 }

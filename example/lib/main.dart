@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatefulWidget {
+class HomePage extends Vmx<HomeViewModel> {
   const HomePage({
     super.key,
     this.initialValue = 0,
@@ -23,15 +23,10 @@ class HomePage extends StatefulWidget {
   final int initialValue;
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends VMState<HomePage, HomeViewModel> {
-  @override
-  ViewModel createViewModel() => HomeViewModel();
+  HomeViewModel createViewModel() => HomeViewModel();
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context, vm) {
     return Scaffold(
       appBar: AppBar(title: const Text('Hello StatyX')),
       floatingActionButton: FloatingActionButton(
@@ -46,9 +41,7 @@ class HomeViewModel extends ViewModel<HomePage> {
 
   @override
   void onInit() {
+    super.onInit();
     counter.value = widget.initialValue;
   }
-
-  @override
-  void onClose() {}
 }

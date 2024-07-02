@@ -1,3 +1,7 @@
+## 0.1.2
+
+* add Vmx widget to replace VMState
+
 ## 0.1.1
 
 * bind widget and viewModel more tightly, it's one-to-one relationship now.
